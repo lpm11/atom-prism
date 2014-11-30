@@ -1,4 +1,5 @@
 {$,View} = require 'atom'
+Random = require("random-js");
 
 module.exports =
 class PrismView
@@ -6,9 +7,9 @@ class PrismView
     @active = false
     @markerClass = 'prism-marker'
     @decorateStatus = {
-      "round"  : 1000,
-      "curly"  : 1000,
-      "square" : 1000
+      "round"  : 0,
+      "curly"  : 0,
+      "square" : 0
     }
     @decorateVariation = 9
 
@@ -46,6 +47,7 @@ class PrismView
     e.buffer.scan(r, (m) -> matches.push(m))
 
     @destroyMarkers(e)
+    @random = new Random(Random.engines.mt19937().seed(723))
     for m in matches
       bracket = @classifyBracket(m.matchText)
       if (bracket?)
@@ -91,6 +93,9 @@ class PrismView
     return null;
 
   nextDecoratorClass: (bracket) ->
-    n = (@decorateStatus[bracket[0]] + bracket[2]) % @decorateVariation
+    if (@decorateStatus[bracket[0]]==0)
+      @decorateStatus[bracket[0] + "_base"] = 1000 + @random.integer(0, @decorateVariation-1)
+
+    n = (@decorateStatus[bracket[0]] + @decorateStatus[bracket[0] + "_base"] + bracket[2]) % @decorateVariation
     @decorateStatus[bracket[0]] += bracket[1]
     return "prism" + n
