@@ -1,0 +1,22 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Toggle prism'
+      'command': 'prism:toggle'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'prism'
+      'submenu': [
+        {
+          'label': 'Toggle'
+          'command': 'prism:toggle'
+        }
+      ]
+    ]
+  }
+]

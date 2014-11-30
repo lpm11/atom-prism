@@ -1,0 +1,16 @@
+{
+  "name": "prism",
+  "main": "./lib/prism",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "activationCommands": {
+    "atom-workspace": "prism:toggle"
+  },
+  "repository": "https://github.com/atom/prism",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}

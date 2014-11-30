@@ -1,0 +1,33 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/stylesheets/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+
+@color0: red;
+@color1: orange;
+@color2: yellow;
+@color3: greenyellow;
+@color4: green;
+@color5: cyan;
+@color6: slateblue;
+@color7: magenta;
+@color8: purple;
+
+.prism {
+}
+
+.prism-region (@color) {
+  background-color: @color;
+  opacity: 0.4;
+}
+
+.prism0 .region { .prism-region(@color0); }
+.prism1 .region { .prism-region(@color1); }
+.prism2 .region { .prism-region(@color2); }
+.prism3 .region { .prism-region(@color3); }
+.prism4 .region { .prism-region(@color4); }
+.prism5 .region { .prism-region(@color5); }
+.prism6 .region { .prism-region(@color6); }
+.prism7 .region { .prism-region(@color7); }
+.prism8 .region { .prism-region(@color8); }
